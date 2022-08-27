@@ -1,0 +1,17 @@
+.profile__prename {
+  font-size: 18px;
+  line-height: 22px;
+  margin: 16px 0 25px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 550px) {
+  .profile__prename {
+    font-size: 14px;
+    line-height: 17px;
+    margin: 7px 0 0;
+    text-align: center;
+  }
+}

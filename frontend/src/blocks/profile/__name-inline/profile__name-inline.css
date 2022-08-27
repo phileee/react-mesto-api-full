@@ -1,0 +1,11 @@
+.profile__name-inline {
+  display: inline-flex;
+  align-items: baseline;
+  max-width: 336px;
+}
+
+@media (max-width: 500px) {
+  .profile__name-inline {
+    max-width: 282px;
+  }
+}

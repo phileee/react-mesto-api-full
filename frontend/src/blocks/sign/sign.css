@@ -1,0 +1,11 @@
+.sign {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto 0;
+}
+
+@media (max-width: 350px) {
+  .sign {
+    margin: 40px auto 0;
+  }
+}

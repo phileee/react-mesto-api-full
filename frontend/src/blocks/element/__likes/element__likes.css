@@ -1,0 +1,6 @@
+.element__likes {
+  max-width: 22px;
+  max-height: 35px;
+  display: flex;
+  flex-direction: column;
+}

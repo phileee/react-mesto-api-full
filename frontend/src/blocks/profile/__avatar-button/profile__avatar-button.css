@@ -1,0 +1,17 @@
+.profile__avatar-button {
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  max-width: 120px;
+  max-height: 120px;
+  cursor: pointer;
+}
+
+.profile__avatar-button:hover {
+  background-image: url(../../../images/Pen.svg); 
+}
+
+

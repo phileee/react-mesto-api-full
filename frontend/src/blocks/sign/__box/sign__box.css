@@ -1,0 +1,12 @@
+.sign__box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  max-width: 358px;
+}
+
+@media (max-width: 380px) {
+  .sign__box {
+    max-width: 260px;
+  }
+}

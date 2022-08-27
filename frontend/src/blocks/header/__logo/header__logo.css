@@ -1,0 +1,19 @@
+.header__logo {
+  width: 144px;
+  height: 33px;
+  background-image: url(../../../images/logo.svg);
+  background-size: cover;
+}
+
+@media (max-width: 900px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header__logo {
+    width: 103.74px;
+    height: 24.4px;
+  }
+}

@@ -1,0 +1,5 @@
+.popup__close_figure {
+  position: unset;
+  margin: 0 0 8px calc(100% - 16px);
+}
+

@@ -1,0 +1,17 @@
+.header__info {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 900px) {
+  .header__info {
+    margin-right: 27px;
+  }
+}
+
+@media (max-width: 380px) {
+  .header__info {
+    width: 100px;
+    flex-wrap: wrap;
+  }
+}
