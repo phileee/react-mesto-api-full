@@ -3,6 +3,7 @@ import Header from './Header';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import { useNavigate } from 'react-router-dom';
+import * as auth from '../utils/Auth';
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onCardLike, onCardDelete, setLoggedIn}) {
 
@@ -11,10 +12,18 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick, cards, onC
   const navigate = useNavigate();
 
   const handleExit = () => {
-    document.cookie = "jwt=";
-    localStorage.removeItem('email');
-    setLoggedIn(false);
-    navigate('/sign-in');
+    auth.deauthorize()
+    .then((res) => {
+      if (res) {
+        localStorage.removeItem('email');
+        setLoggedIn(false);
+        navigate('/sign-in');
+      } else {
+        throw new Error('Ошибка выхода')
+      }
+    })
+    .catch((err) => console.log(err)
+    )
   }
 
   return (

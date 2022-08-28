@@ -30,6 +30,17 @@ export const authorize = (email, password) => {
   })
 };
 
+export const deauthorize = () => {
+  return fetch(`${BASE_URL}/signout`, {
+    method: "GET",
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+      'Acces-Control-Allow-Credentials': 'true'
+    },
+  })
+};
+
 export const checkToken = (/*token*/) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',

@@ -35,6 +35,8 @@ function Login({onClose, isSignPopup, setIsSignPopup, successSign, setSuccessSig
     })
     .then((res) => {
       //localStorage.setItem('jwt', res.token);
+      //document.cookie=`jwt=${document.cookie.slice(4)}`;
+      console.log(document.cookie);
       localStorage.setItem('email', data.email);
       setLoggedIn(true);
       navigate('/');

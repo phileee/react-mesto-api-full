@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 const app = express();
 
 const corsOrigins = {
-  origin: ['http://phile.mesto.nomoredomains.sbs', 'https://phile.mesto.nomoredomains.sbs'],
+  origin: ['http://phile.mesto.nomoredomains.sbs', 'https://phile.mesto.nomoredomains.sbs', 'http://api.phile.mesto.nomoredomains.sbs', 'https://api.phile.mesto.nomoredomains.sbs'],
   credentials: true,
 };
 
@@ -36,7 +36,7 @@ app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
-}); 
+});
 
 app.post('/signin', celebrate({
   body: Joi.object().keys({
@@ -56,6 +56,24 @@ app.post('/signup', celebrate({
 }), createUser);
 
 app.use(auth, routers);
+
+app.get('/signout', (req, res, next) => {
+  try {
+    res
+      .clearCookie('jwt', {
+        sameSite: 'None',
+        secure: 'True',
+        domain: '.phile.mesto.nomoredomains.sbs'
+      })
+      .header({
+        'Acces-Control-Allow-Credentials': 'true'
+      })
+      .send({ message: 'Куки успешно удалены' });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 app.use(auth, () => {
   throw new NotFoundError('Страницы не существует');
 });

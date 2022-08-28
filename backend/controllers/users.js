@@ -28,7 +28,8 @@ module.exports.login = (req, res, next) => {
               maxAge: 3600000 * 24 * 7,
               // httpOnly: true,
               sameSite: 'None',
-              secure: 'False'
+              secure: 'True',
+              domain: '.phile.mesto.nomoredomains.sbs'
             })
             .header('Access-Control-Allow-Credentials', true)
             .send({ message: 'token created' });
