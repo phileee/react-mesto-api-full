@@ -1,18 +1,18 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const { requestLogger, errorLogger } = require('./middlewares/logger');
 const mongoose = require('mongoose');
 const { celebrate, Joi, errors } = require('celebrate');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routers = require('./routes/routers');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const middlewareError = require('./middlewares/middleware-errors');
 const NotFoundError = require('./errors/not-found-err');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
@@ -59,14 +59,14 @@ app.use(auth, routers);
 
 app.get('/signout', (req, res, next) => {
   try {
-    res
+    return res
       .clearCookie('jwt', {
         sameSite: 'None',
         secure: 'True',
-        domain: '.phile.mesto.nomoredomains.sbs'
+        domain: '.phile.mesto.nomoredomains.sbs',
       })
       .header({
-        'Acces-Control-Allow-Credentials': 'true'
+        'Access-Control-Allow-Credentials': 'true',
       })
       .send({ message: 'Куки успешно удалены' });
   } catch (err) {

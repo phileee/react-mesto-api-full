@@ -29,7 +29,7 @@ module.exports.login = (req, res, next) => {
               // httpOnly: true,
               sameSite: 'None',
               secure: 'True',
-              domain: '.phile.mesto.nomoredomains.sbs'
+              domain: '.phile.mesto.nomoredomains.sbs',
             })
             .header('Access-Control-Allow-Credentials', true)
             .send({ message: 'token created' });
