@@ -36,7 +36,7 @@ export const deauthorize = () => {
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
-      'Acces-Control-Allow-Credentials': 'true'
+      'Access-Control-Allow-Credentials': 'true'
     },
   })
 };
